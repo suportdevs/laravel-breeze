@@ -38,12 +38,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('admin.auth.login');
+        return view('admin.auth.login', ['guard'=>'admin']);
     }
 
     public function authenticate(Request $request)
     {
-        dd($request);
+        
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
